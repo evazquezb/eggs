@@ -165,52 +165,52 @@ header button{
 }
 
 @media (min-width:360px){
-    .principiante{
+    .Easy{
        font-size:1.05em;
     }
-    .intermedio{
+    .Hard{
        font-size:0.76em;
     }
-    .avanzado{
+    .Expert{
        font-size:0.74em;
     }
 
 }
 
 @media (min-width:375px){
-    .principiante{
+    .Easy{
        font-size:1.1em;
     }
-    .intermedio{
+    .Hard{
        font-size:0.8em;
     }
-    .avanzado{
+    .Expert{
        font-size:0.75em;
     }
 
 }
 
 @media (min-width:390px){
-    .principiante{
+    .Easy{
        font-size:1.2em;
     }
-    .intermedio{
+    .Hard{
        font-size:0.95em;
     }
-    .avanzado{
+    .Expert{
        font-size:0.8em;
     }
 
 }
 
 @media (min-width:412px){
-    .principiante{
+    .Easy{
        font-size:1.25em;
     }
-    .intermedio{
+    .Hard{
        font-size:1em;
     }
-    .avanzado{
+    .Expert{
        font-size:0.85em;
     }
 
@@ -220,13 +220,13 @@ header button{
         width:3em;
         height:3em;
     }
-    .principiante{
+    .Easy{
        font-size:2em;
     }
-    .intermedio{
+    .Hard{
        font-size:1.3em;
     }
-    .avanzado{
+    .Expert{
        font-size:1.3em;
     }
 
@@ -306,70 +306,70 @@ header button{
         width:2em;
         height:2em;
        } 
-    .principiante{
+    .Easy{
         font-size:0.845em;
     }
-    .intermedio,.avanzado{
+    .Hard,.Expert{
         font-size:0.425em;
     }
 
     @media (min-width:653px){
-        .principiante{
+        .Easy{
             font-size:0.6em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.3em;
         }
     }
 
     @media (min-width:667px){
-        .principiante{
+        .Easy{
             font-size:0.8em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.45em;
         }
     }
 
     @media (min-width:740px){
-        .principiante{
+        .Easy{
             font-size:0.845em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.425em;
         }
     }
 
     @media (min-width:844px){
-        .principiante{
+        .Easy{
             font-size:0.937em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.472em;
         }
     }
     @media (min-width:851px){
-        .principiante{
+        .Easy{
             font-size:0.939em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.475em;
         }
     }
 
     @media (min-width:896px){
-        .principiante{
+        .Easy{
             font-size:1.008em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.51em;
         }
     }
     @media (min-width:914px){
-        .principiante{
+        .Easy{
             font-size:1em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.505em;
         }
     }
@@ -379,28 +379,28 @@ header button{
             width:3em;
             height:3em;
         }
-        .principiante{
+        .Easy{
             font-size:1.88em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.95em;
         }
     }
 
     @media (min-width:1180px){
-        .principiante{
+        .Easy{
             font-size:2.055em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:1.035em;
         }
     }
 
     @media (min-width:1320px){
-        .principiante{
+        .Easy{
             font-size:1.582em;
         }
-        .intermedio,.avanzado{
+        .Hard,.Expert{
             font-size:0.8em;
         }
         }
