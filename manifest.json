@@ -1,8 +1,8 @@
 {
-    "name":"Kaos_games",
+    "name":"Erayde",
     "author":"Erayde Vázquez",
     "browser_action":{"default_title":"kaos"},
-    "short_name":"Game_Kaos",
+    "short_name":"Erayde",
     "start_url":"/index.html",
     "scope":"/",
     "display":"fullscreen",
