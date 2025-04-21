@@ -1,0 +1,465 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body{
+    background-color: var(--bodyBgColor);
+    background-image: linear-gradient(to bottom,#fff8,#fff7);/*,linear-gradient(135deg,#fff0,#fff0 50%,#fff3 50%,#fff3 51%,#fff0 51%,#fff0);*/
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+header{
+    width:100%;
+    margin-bottom: 0.5em;
+    background-image: linear-gradient(#fff2,#fff1);
+    border-bottom:thin solid #fff2;
+    box-shadow: 0 1em 2em #0002;
+}
+main{
+    width:100vw;
+    justify-content: center;
+}
+
+section{
+    box-sizing: content-box;
+    background-image: linear-gradient(-45deg,#0003,#0000);
+    border:0.2em inset #fff6;
+    box-shadow: inset -0.2em -0.2em 1em #000a;
+}
+span{
+    font: 600 1.5em Arial,sans-serif;
+    -webkit-text-stroke:0.05em #000;
+}
+button{
+    padding:0.15em;
+    font: 600 1em Arial,sans-serif;
+    background-color:#fff0;
+    border-color:#0000;
+}
+
+footer{
+    position:sticky;
+    bottom:0;
+    width:100%;
+}
+audio{
+    display:none;
+}
+@media (min-width:768){
+    header{
+       margin-bottom: 2em;
+    }   
+   }
+@media (orientation:landscape){
+    body{
+       min-height: 90vh;
+    }
+    header{
+        margin-bottom: 0.1em;
+    }
+    footer{
+        position:relative;
+        top:0;
+    }
+}
+@media (min-width:1024px){
+    header{
+        margin-bottom: 4em;
+     }  
+}
+header span{
+    display:flex;
+    align-items: center;
+    font-size: 1.2em;
+    color:#333;
+    -webkit-text-stroke:0.01em #fff8;
+    transform: translate(0,12.5%);
+}
+header button{
+    font-size:1em;
+    color:#444;
+    filter:drop-shadow(0 0 0.07em #fff8);
+    -webkit-text-stroke:0.005em #fffa;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.Easy,.Hard,.Expert{
+    display:none;
+}
+
+.Easy{
+    font-size:0.865em;
+}
+
+.Hard{
+    font-size:0.679em;
+}
+.Expert{
+    font-size:0.58em;
+}
+
+.line{
+    display:flex;
+}
+
+.buttons{
+    position:absolute;
+}
+.buttons{
+    position:relative;
+}
+.buttons{
+    background-color: #fff0;
+    
+}
+
+
+._0{
+    color:#fff0;
+    -webkit-text-stroke: 0 #0000;
+}
+._1{
+    color:#00f6;
+}
+._2{
+    color:#0f06;
+}
+._3{
+    color:#f006;
+}
+._4{
+    color:#0058;
+}
+._6{
+    color:#ff08;
+}
+._7{
+    color:#0008;
+}
+._8{
+    color:#f00;
+}
+.menu{
+    justify-content: center;
+    border-bottom : thin inset #888;
+}
+.levelButton{
+    width: 2.5em;
+    height:2.5em;
+    background-image: url("./imgs/levelButton.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:0;
+    color:#fff;
+    margin:0.5em 1em 0 1em;
+    filter : drop-shadow(0.2em 0 0.1em #0007);
+    border-radius:50%;
+}
+
+@media (min-width:360px){
+    .principiante{
+       font-size:1.05em;
+    }
+    .intermedio{
+       font-size:0.76em;
+    }
+    .avanzado{
+       font-size:0.74em;
+    }
+
+}
+
+@media (min-width:375px){
+    .principiante{
+       font-size:1.1em;
+    }
+    .intermedio{
+       font-size:0.8em;
+    }
+    .avanzado{
+       font-size:0.75em;
+    }
+
+}
+
+@media (min-width:390px){
+    .principiante{
+       font-size:1.2em;
+    }
+    .intermedio{
+       font-size:0.95em;
+    }
+    .avanzado{
+       font-size:0.8em;
+    }
+
+}
+
+@media (min-width:412px){
+    .principiante{
+       font-size:1.25em;
+    }
+    .intermedio{
+       font-size:1em;
+    }
+    .avanzado{
+       font-size:0.85em;
+    }
+
+}
+@media (min-width:768px){
+    .menuButton{
+        width:3em;
+        height:3em;
+    }
+    .principiante{
+       font-size:2em;
+    }
+    .intermedio{
+       font-size:1.3em;
+    }
+    .avanzado{
+       font-size:1.3em;
+    }
+
+}
+.spaced{
+    justify-content: space-around;
+}
+.round{
+    width:1em;
+    height:1em;
+    position:absolute;
+    border-radius:1em;
+    left:3em;
+    top:0.2em;
+  }
+          .light{
+          background-color: #0000;
+          
+          background-image: -webkit-radial-gradient(#000,#030 55%,#0004 60%,#0000 70%),
+          -webkit-linear-gradient(linear,left top, right top,color-stop(30%, #0005),to(#fff4));
+
+          background-image: -o-radial-gradient(#000,#030 55%,#0004 60%,#0000 70%),
+          -o-linear-gradient(left,#0005 30%,#fff4);
+
+          background-image: radial-gradient(#000,#030 55%,#0004 60%,#0000 70%),
+          linear-gradient(to right,#0005 30%,#fff4);
+          
+          
+          padding:0;
+             
+          }
+          .color{
+              background-image: -o-radial-gradient(#0f0,#0f0 25%,#0000 50%);
+              background-image: radial-gradient(#0f0,#0f0 25%,#0000 50%);
+              
+              -webkit-filter:blur(0.1em);
+                      filter:blur(0.1em);
+              -webkit-box-shadow: 0 0 1em 0.5em #0f02,inset 0 0 1em 2em #0f02;
+                      box-shadow: 0 0 1em 0.5em #0f02,inset 0 0 1em 2em #0f02;
+              opacity:0;
+              -webkit-transition : 0.2s;
+              -o-transition : 0.2s;
+              transition : 0.2s;
+              border:0.05em #fff;
+          }
+          .glass{
+              background-image: -o-radial-gradient(#fff0,#fff2 40%,#fff0 50%);
+              background-image: radial-gradient(#fff0,#fff2 40%,#fff0 50%);
+              -webkit-box-shadow:none;
+                      box-shadow:none;
+          }
+.flagZone{
+    display:none;
+    position:relative;
+}
+.pushed{
+    background-size: 95% 95%;
+    background-image: url("./imgs/levelButtonActive.png");
+    -webkit-text-stroke: 0.025em #000;
+    filter : drop-shadow(0 0 0.2em #fff8);
+    
+}
+.install{
+    position: static;
+    display:none;
+    background-color: #ff8;
+    border: thin solid #111;
+    border-radius: 0.2em;
+    margin:1em 0 0 1em;
+}
+@media (orientation:landscape){
+    .install{
+        position: absolute;
+        top: 0;
+    }
+    .menuButton{
+        width:2em;
+        height:2em;
+       } 
+    .principiante{
+        font-size:0.845em;
+    }
+    .intermedio,.avanzado{
+        font-size:0.425em;
+    }
+
+    @media (min-width:653px){
+        .principiante{
+            font-size:0.6em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.3em;
+        }
+    }
+
+    @media (min-width:667px){
+        .principiante{
+            font-size:0.8em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.45em;
+        }
+    }
+
+    @media (min-width:740px){
+        .principiante{
+            font-size:0.845em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.425em;
+        }
+    }
+
+    @media (min-width:844px){
+        .principiante{
+            font-size:0.937em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.472em;
+        }
+    }
+    @media (min-width:851px){
+        .principiante{
+            font-size:0.939em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.475em;
+        }
+    }
+
+    @media (min-width:896px){
+        .principiante{
+            font-size:1.008em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.51em;
+        }
+    }
+    @media (min-width:914px){
+        .principiante{
+            font-size:1em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.505em;
+        }
+    }
+
+    @media (min-width:1024px){
+        .menuButton{
+            width:3em;
+            height:3em;
+        }
+        .principiante{
+            font-size:1.88em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.95em;
+        }
+    }
+
+    @media (min-width:1180px){
+        .principiante{
+            font-size:2.055em;
+        }
+        .intermedio,.avanzado{
+            font-size:1.035em;
+        }
+    }
+
+    @media (min-width:1320px){
+        .principiante{
+            font-size:1.582em;
+        }
+        .intermedio,.avanzado{
+            font-size:0.8em;
+        }
+        }
+    
+}
+
+
+:root{
+    --bodyBgColor:#999;
+    --buttonsColor:#aaa;
+    --buttonsBorderColorA:#fff;
+    --buttonsBorderColorB:#888;
+    }
+
+.buttons button{
+    width:2.5em;
+    height:2.5em;
+    background-color: var(--buttonsColor);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border : 0.13em solid var(--buttonsBorderColorA);
+    border-left:0.13em solid var(--buttonsBorderColorB);
+    border-bottom:0.13em solid var(--buttonsBorderColorB);
+    overflow: hidden;
+    color:#0000;
+}
+.buttons .pressed{
+    background-color: #8888;
+    border:0.1em solid #8888;
+}
+.buttons .focus{
+    background-color: #f004;
+}
+.menuButton:active{
+    transform: scale(0.9); 
+}
+.buttons button:active{
+    transform: scale(0.9);
+    transition: 0.1s;
+}
+
+@keyframes explote {
+    0%{
+        border-color:#0000;
+        background-image: url("./imgs/mina.png");
+
+    }
+
+    
+    50%{
+        background-image: url("./imgs/pressed.png");
+    }
+    
+    100%{
+        border-color:#0000;
+        background-image: url("./imgs/exploted.png");
+        background-color: #f308;
+        border-radius: 50%;
+    }
+}
+

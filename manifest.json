@@ -1,0 +1,25 @@
+{
+    "name":"Kaos_games",
+    "author":"Erayde Vázquez",
+    "browser_action":{"default_title":"kaos"},
+    "short_name":"Game_Kaos",
+    "start_url":"/index.html",
+    "scope":"/",
+    "display":"fullscreen",
+    "offline_enabled": true,
+    "theme_color":"#aaa",
+    "background_color":"#aaa",
+    "icons":[{
+        "src":"./imgs/vsoft.png",
+        "sizes":"512x512",
+        "type":"image/png",
+        "purpose":"maskable"
+    },
+    {
+        "src":"./imgs/vsoft144.png",
+        "sizes":"144x144",
+        "type":"image/png",
+        "purpose":"any"
+    }
+]
+}

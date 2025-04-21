@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#888" id="theme" >
+    <meta name="description" content="Juego Kaos eggs basado en el buscaminas">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+    <meta property="og:url" content="https://kaos-eggs.netlify.app/" />
+    <meta property="og:image" content="./imgs/ogImage.png" />
+    <meta name="keywords" content="pwa kaos eggs buscaminas">
+    <meta property="og:title" content="Kaos eggs" />
+    <meta property="og:description" content="Juego Kaos eggs basado en el buscaminas" />
+    <meta property="og:type" content="website"/>
+    <title>Kaos games</title>
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="shortcut icon" href="./imgs/vsoft.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./imgs/ati.png">
+    <link rel="manifest" href="./manifest.json">  
+</head>
+<body class="">
+    <header>
+        <div class="line menu">
+            <span>Start level :</span>
+            <button name="level one" id="btnEasy" class="levelButton">1</button>
+            <button name="level two" id="btnHard" class="levelButton">2</button>
+            <button name="level tree" id="btnExpert" class="levelButton">3</button>
+        </div>
+        <div class="line menu spaced">
+            <button name="dark mode" id="btnDarkMode">Dark</button>
+            <button name="timer" id="timer">timer</button>
+            <div class="flagZone" id="flagZone">
+                <button name="flag" id="btnFlagMode">Flag</button>
+                <div>
+                <div class="round light"></div>
+                <div class="round color" id="light"></div> 
+                <div class="round glass"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <button name="install application" class="install" id="btnInstall">Install</button>
+    <main class="line" >
+        <section class="Easy">
+            <div class="container buttons">
+                <div class="line" id="_0">
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_1" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_2" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_3" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_4" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_5" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_6" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div>
+                <div class="line" id="_7" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                </div> 
+            </div>
+            </section>
+            <!-- intermedio section -->
+            <section class="Hard">
+               
+                <div class="container buttons">
+                    <div class="line" id="_0">
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_1" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_2" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_3" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_4" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_5" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_6" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_7" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_8">
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_9" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_10" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_11" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_12" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_13" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_14" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>
+                    <div class="line" id="_15" >
+                        <button name="position" id="_0" data-flag="0"></button>
+                        <button name="position" id="_1" data-flag="0"></button>
+                        <button name="position" id="_2" data-flag="0"></button>
+                        <button name="position" id="_3" data-flag="0"></button>
+                        <button name="position" id="_4" data-flag="0"></button>
+                        <button name="position" id="_5" data-flag="0"></button>
+                        <button name="position" id="_6" data-flag="0"></button>
+                        <button name="position" id="_7" data-flag="0"></button>
+                        <button name="position" id="_8" data-flag="0"></button>
+                        <button name="position" id="_9" data-flag="0"></button>
+                        
+                        
+                    </div>  
+                </div>
+        </section>
+
+        <!-- intermedio section -->
+        <section class="Expert">
+            <div class="container buttons">
+                <div class="line" id="_0">
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_1" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_2" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_3" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_4" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_5" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_6" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_7" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_8">
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_9" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_10" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_11" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_12" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_13" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                    
+                </div>
+                <div class="line" id="_14" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                </div>
+                <div class="line" id="_15" >
+                    <button name="position" id="_0" data-flag="0"></button>
+                    <button name="position" id="_1" data-flag="0"></button>
+                    <button name="position" id="_2" data-flag="0"></button>
+                    <button name="position" id="_3" data-flag="0"></button>
+                    <button name="position" id="_4" data-flag="0"></button>
+                    <button name="position" id="_5" data-flag="0"></button>
+                    <button name="position" id="_6" data-flag="0"></button>
+                    <button name="position" id="_7" data-flag="0"></button>
+                    <button name="position" id="_8" data-flag="0"></button>
+                    <button name="position" id="_9" data-flag="0"></button>
+                    <button name="position" id="_10" data-flag="0"></button>
+                    <button name="position" id="_11" data-flag="0"></button>
+                </div>  
+            </div>
+    </section>
+        
+    </main>
+    <footer>
+    </footer>
+    <audio src="./sounds/crack.mp3" id="crackSound"></audio>
+    <audio src="./sounds/click.mp3" id="clickSound"></audio>
+    <audio src="./sounds/win.mp3" id="winSound"></audio>
+    <audio src="./sounds/lose.mp3" id="loseSound"></audio>
+    <audio src="./sounds/error.mp3" id="errorSound"></audio>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
