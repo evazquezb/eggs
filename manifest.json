@@ -1,8 +1,8 @@
 {
-    "name":"Erayde",
+    "name":"Kaos eggs",
     "author":"Erayde Vázquez",
     "browser_action":{"default_title":"kaos"},
-    "short_name":"Erayde",
+    "short_name":"Kaos eggs",
     "start_url":"/index.html",
     "scope":"/",
     "display":"fullscreen",
