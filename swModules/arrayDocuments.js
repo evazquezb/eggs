@@ -5,6 +5,7 @@ export const arrayDocuments = [
     '/main.js',
     '/style.css',
     '/manifest.json',
+    '/prueba.txt',
     '/sounds/crack.mp3',
     '/sounds/click.mp3',
     '/sounds/win.mp3',
