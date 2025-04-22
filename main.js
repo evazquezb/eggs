@@ -24,15 +24,15 @@ try {
     //creamos objetos que representan niveles del juego
     const level1 = {
         level: "Easy", rows: 8, columns: 8, eggs: 10, cellsToClear: 54, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0
     }
     const level2 = {
         level: "Hard", rows: 16, columns: 10, eggs: 32, cellsToClear: 128, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0
     }
     const level3 = {
         level: "Expert", rows: 16, columns: 12, eggs: 50, cellsToClear: 192, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false, eggsToExplote: 45, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 45, eggsChecked: 0, eggsExploted: 0
     }
 
     //referencias para control del juego y ui
@@ -70,6 +70,7 @@ try {
         data.getReady();
         //limpiamos propiedades del nivel;
         actualLevel.flagged = 0;
+        actualLevel.animating = false;
         actualLevel.cellsToClear = actualLevel.rows * actualLevel.columns - actualLevel.eggs;
         actualLevel.lose = false;
         actualLevel.win = false;
@@ -95,7 +96,7 @@ try {
 
     //--para explotartodas los huevos cuando pierdes
     const exploteEggs = function () {
-        actualLevel.lose = true;
+        actualLevel.animating = true;
         if (notifications === "granted" && !util.movil) {
             swRegistration.showNotification("Chiiiin!", {
                 body: `intenta de nuevo el nivel ${actualLevel.level}`,
@@ -139,7 +140,6 @@ try {
             timingAnimation += 20;
             return setTimeout(clearCell.bind(button), timingAnimation);
         });
-        actualLevel.playing = timer.stop();
     }
 
     //--para explotar una mina
@@ -152,7 +152,9 @@ try {
             this.style.animation = "none";
             actualLevel.eggsChecked += 1;
             if (actualLevel.eggsToExplote == actualLevel.eggsChecked) {
+                actualLevel.animating = false;
                 actualLevel.lose = true;
+                actualLevel.playing = timer.stop();
                 document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
             }
         }, 50);
@@ -227,6 +229,7 @@ try {
     }
     //para setear nivel y comenzar a jugar
     function level() {
+        if(actualLevel.animating) return false;
         if(actualLevel.playing){
             const sure = window.confirm('Are you sure');
             if(!sure) return;
@@ -321,7 +324,7 @@ try {
             dom.root.style.setProperty('--buttonsColor', '#666');
             dom.root.style.setProperty('--buttonsBorderColorA', '#888');
             dom.root.style.setProperty('--buttonsBorderColorB', '#333');
-            theme.content = "#000";
+            theme.content = "#000";  
             this.textContent = "Ligth";
         } else {
             dom.root.style.setProperty('--bodyBgColor', '#999');
