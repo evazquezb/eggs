@@ -24,15 +24,15 @@ try {
     //creamos objetos que representan niveles del juego
     const level1 = {
         level: "Easy", rows: 8, columns: 8, eggs: 10, cellsToClear: 54, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, animating: false, playing: false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0
     }
     const level2 = {
         level: "Hard", rows: 16, columns: 10, eggs: 32, cellsToClear: 128, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, animating: false, playing: false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0
     }
     const level3 = {
         level: "Expert", rows: 16, columns: 12, eggs: 50, cellsToClear: 192, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, animating: false, playing: false, eggsToExplote: 45, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false, eggsToExplote: 45, eggsChecked: 0, eggsExploted: 0
     }
 
     //referencias para control del juego y ui
@@ -72,7 +72,6 @@ try {
         actualLevel.flagged = 0;
         actualLevel.cellsToClear = actualLevel.rows * actualLevel.columns - actualLevel.eggs;
         actualLevel.lose = false;
-        actualLevel.animating = false;
         actualLevel.win = false;
         actualLevel.eggsChecked = 0;
         actualLevel.eggsExploted = 0;
@@ -96,10 +95,7 @@ try {
 
     //--para explotartodas los huevos cuando pierdes
     const exploteEggs = function () {
-        actualLevel.animating = true;
         actualLevel.lose = true;
-        document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
-        actualLevel.playing = timer.stop();
         if (notifications === "granted" && !util.movil) {
             swRegistration.showNotification("Chiiiin!", {
                 body: `intenta de nuevo el nivel ${actualLevel.level}`,
@@ -143,6 +139,7 @@ try {
             timingAnimation += 20;
             return setTimeout(clearCell.bind(button), timingAnimation);
         });
+        actualLevel.playing = timer.stop();
     }
 
     //--para explotar una mina
@@ -155,9 +152,8 @@ try {
             this.style.animation = "none";
             actualLevel.eggsChecked += 1;
             if (actualLevel.eggsToExplote == actualLevel.eggsChecked) {
-                //actualLevel.playing = false;
                 actualLevel.lose = true;
-                actualLevel.animating = false;
+                document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
             }
         }, 50);
     }
@@ -167,10 +163,6 @@ try {
         try {
             if (!actualLevel.playing) {
                 actualLevel.playing = timer.start();
-            }
-            if (!actualLevel.playing || actualLevel.animating){
-                console.log(actualLevel);
-                return false;
             }
             if (e.button == 2 || flag) {
                 return boton.putFlag.call(this, actualLevel, data, clickSound) ? win() : true;
@@ -209,14 +201,12 @@ try {
             data[coordenada[0]][coordenada[1]] = 11;
         } else {
 
-            if (actualLevel.animating) {
                 if (data[coordenada[0]][coordenada[1]] != 9) {
                     this.style.backgroundImage = "url(./imgs/wrongFlag.png)";
                 } else {
                     this.style.backgroundImage = "url(./imgs/mina.png),url(./imgs/flag.png)";
                 }
                 this.classList.add("pressed");
-            }
         }
         data[coordenada[0]][coordenada[1]] = data[coordenada[0]][coordenada[1]] == 0 ?
             10 : data[coordenada[0]][coordenada[1]];
@@ -237,10 +227,6 @@ try {
     }
     //para setear nivel y comenzar a jugar
     function level() {
-        if (actualLevel.animating == true) {
-            dom.errorSound.currentTime = 0;
-            return dom.errorSound.play();
-        }
         if(actualLevel.playing){
             const sure = window.confirm('Are you sure');
             if(!sure) return;
@@ -256,7 +242,6 @@ try {
         dom.winSound.play();
         actualLevel.win = true;
         if (flag) btnFlagMode.click();
-        //actualLevel.playing = false;
         document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
         if (notifications === "granted" && !util.movil) {
             swRegistration.showNotification("Nos salvaste!", {
