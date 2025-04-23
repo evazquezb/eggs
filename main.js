@@ -167,7 +167,6 @@ try {
             if (!actualLevel.playing) {
                 actualLevel.playing = timer.start();
             }
-            console.log("lose",actualLevel.lose,"win",actualLevel.win)
             if (e.button == 2 || flag) {
                 return boton.putFlag.call(this, actualLevel, data, clickSound) ? win() : true;
             }
