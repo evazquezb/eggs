@@ -309,7 +309,6 @@ try {
     /////////////////////////////////
 
     dom.btnFlagMode.addEventListener('click', () => {
-        if (!actualLevel.playing) return false;
         flag = !flag;
         light.style.opacity = flag ? 1 : 0;
     });
