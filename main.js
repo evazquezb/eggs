@@ -191,26 +191,25 @@ try {
         const coordenada = boton.position.call(this);
         const content = data[coordenada[0]][coordenada[1]];
         const flagged = boton.flag.call(this);
-        if (content == 11) return false;
-
-        if (!flagged) {
-            this.innerHTML = `<span class='_${content}'>${content > 0 && content < 9 ? content : ""}</span>`;
-            this.classList.add("pressed");
-            this.removeEventListener('click', act);
-            this.removeEventListener('contextmenu', act);
-            if (data[coordenada[0]][coordenada[1]] != 9) {
-                actualLevel.cellsCleared += 1;
-            }
-            data[coordenada[0]][coordenada[1]] = 11;
-        } else {
-
+        if (content == 11) return;
+            if (flagged) {
+                if(actualLevel.animating || actualLevel.lose){
+                    this.style.backgroundImage = data[coordenada[0]][coordenada[1]] == 9 ?
+                    "url(./imgs/mina.png),url(./imgs/flag.png)":
+                    "url(./imgs/wrongFlag.png)";
+                    this.classList.add("pressed");   
+                    }
+            } else {
                 if (data[coordenada[0]][coordenada[1]] != 9) {
-                    this.style.backgroundImage = "url(./imgs/wrongFlag.png)";
-                } else {
-                    this.style.backgroundImage = "url(./imgs/mina.png),url(./imgs/flag.png)";
+                    actualLevel.cellsCleared += 1;
                 }
+                this.innerHTML = `<span class='_${content}'>${content > 0 && content < 9 ? content : ""}</span>`;
+                this.removeEventListener('click', act);
+                this.removeEventListener('contextmenu', act);
                 this.classList.add("pressed");
-        }
+                data[coordenada[0]][coordenada[1]] = 11;
+            }
+            
         data[coordenada[0]][coordenada[1]] = data[coordenada[0]][coordenada[1]] == 0 ?
             10 : data[coordenada[0]][coordenada[1]];
         if(clearAround && !actualLevel.win){setTimeout(clearAroundEmptys.bind(this), 50)};
