@@ -32,7 +32,7 @@ try {
     }
     const level3 = {
         level: "Expert", rows: 16, columns: 12, eggs: 50, cellsToClear: 192, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false,animating:false, eggsToExplote: 45, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 50, eggsChecked: 0, eggsExploted: 0
     }
 
     //referencias para control del juego y ui
@@ -76,8 +76,8 @@ try {
         actualLevel.win = false;
         actualLevel.eggsChecked = 0;
         actualLevel.eggsExploted = 0;
-        actualLevel.eggsToExplote = actualLevel.eggs;
         actualLevel.cellsCleared = 0;
+        boton.flags = "whatever";
         localStorage.setItem("actualLevel", JSON.stringify(actualLevel));
         navigator.serviceWorker.ready.then(
             swRegistration => swRegistration.getNotifications().then(notifications =>
@@ -91,6 +91,7 @@ try {
         );
         actualLevel.playing = timer.stop();
         timer.updateUI(0);
+        dom.flags.innerHTML = actualLevel.eggs - boton.flags;
         return true;
     }
 
@@ -168,7 +169,8 @@ try {
                 actualLevel.playing = timer.start();
             }
             if (e.button == 2 || flag) {
-                return boton.putFlag.call(this, actualLevel, data, clickSound) ? win() : true;
+                boton.putFlag.call(this, actualLevel, data, clickSound) ? win() : true;
+                return dom.flags.innerHTML = actualLevel.eggs - boton.flags;
             }
             const flagged = boton.flag.call(this);
             const coordenada = boton.position.call(this);

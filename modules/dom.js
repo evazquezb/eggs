@@ -18,6 +18,7 @@
  const errorSound = document.getElementById("errorSound");
  const timer = document.getElementById("timer");
  const btnInstall = document.getElementById("btnInstall");
+ const flags = document.getElementById("flags");
 ////////////
 ///METODOS//
 ////////////
@@ -36,4 +37,4 @@ export const actualButtonsSection = actualLevel => {
  export const dom = { root,beginnerButtons,intermedioButtons,avanzadoButtons,
     levelButtons,btnFlagMode,btnEasy,btnHard,btnExpert,
     light,theme,btnDarkMode,crackSound,clickSound,winSound,loseSound,errorSound,timer,btnInstall,
-    divFlagZone, actualButtonsSection }
+    divFlagZone, actualButtonsSection,flags }
