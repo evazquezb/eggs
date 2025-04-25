@@ -6,7 +6,7 @@
 import { cache } from "./swModules/cache.js";
 
 //agregamos el manejador al evento install  service worker;
-self.addEventListener('install', event => event.waitUntil(cache.save('mines-v030')) );
+self.addEventListener('install', event => event.waitUntil(cache.save('mines-v052')) );
 
 //agregamos el manejador al evento activate del service worker
 self.addEventListener('activate',event => event.waitUntil(cache.clearAll()) );

@@ -24,20 +24,19 @@ try {
     //creamos objetos que representan niveles del juego
     const level1 = {
         level: "Easy", rows: 8, columns: 8, eggs: 10, cellsToClear: 54, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false,animating:false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 10, eggsChecked: 0, eggsExploted: 0, darkMode : false
     }
     const level2 = {
         level: "Hard", rows: 16, columns: 10, eggs: 32, cellsToClear: 128, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false,animating:false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 32, eggsChecked: 0, eggsExploted: 0, darkMode : false
     }
     const level3 = {
         level: "Expert", rows: 16, columns: 12, eggs: 50, cellsToClear: 192, cellsCleared: 0, flagged: 0,
-        win: false, lose: false, playing: false,animating:false, eggsToExplote: 50, eggsChecked: 0, eggsExploted: 0
+        win: false, lose: false, playing: false,animating:false, eggsToExplote: 50, eggsChecked: 0, eggsExploted: 0, darkMode : false
     }
 
     //referencias para control del juego y ui
     let actualLevel = JSON.parse(localStorage.getItem("actualLevel")) || level1;
-    let darkMode = false;
     let flag = false;
     let eggsPositions;
     let installPrompt = null;
@@ -60,6 +59,7 @@ try {
     ///////////////
     //--para iniciar el juego
     function start(level) {
+        level.darkMode = actualLevel.darkMode;
         actualLevel = level;
         //visualizamos area según nivel;
         document.querySelectorAll('section').forEach(section => section.style.display = "none");
@@ -305,22 +305,10 @@ try {
 
     }
 
-    /////////////////////////////////
-    //Agregar Manejadores de eventos//
-    /////////////////////////////////
-
-    dom.btnFlagMode.addEventListener('click', () => {
-        flag = !flag;
-        light.style.opacity = flag ? 1 : 0;
-    });
-
-    dom.levelButtons.forEach(function(button){
-        button.addEventListener('click', level);
-    });
-
-    dom.btnDarkMode.addEventListener('click', function () {
-        darkMode = !darkMode;
-        if (darkMode) {
+    //para activar o desactivar modo oscuro
+    const fndarkMode = function (begin) {
+        if(!begin) {actualLevel.darkMode = !actualLevel.darkMode}
+        if (actualLevel.darkMode) {
             dom.root.style.setProperty('--bodyBgColor', '#000');
             dom.root.style.setProperty('--buttonsColor', '#666');
             dom.root.style.setProperty('--buttonsBorderColorA', '#888');
@@ -335,7 +323,23 @@ try {
             theme.content = "#888";
             this.textContent = "Dark";
         }
+        localStorage.setItem("actualLevel", JSON.stringify(actualLevel));
+    }
+
+    /////////////////////////////////
+    //Agregar Manejadores de eventos//
+    /////////////////////////////////
+
+    dom.btnFlagMode.addEventListener('click', () => {
+        flag = !flag;
+        light.style.opacity = flag ? 1 : 0;
     });
+
+    dom.levelButtons.forEach(function(button){
+        button.addEventListener('click', level);
+    });
+
+    dom.btnDarkMode.addEventListener('click', fndarkMode.bind(dom.btnDarkMode,false));
     dom.btnInstall.addEventListener('click', install);
     window.addEventListener('contextmenu', e => {
         e.preventDefault();
@@ -350,9 +354,8 @@ try {
     /////////////////////////////////
     //INICIALIZACIONES             //
     /////////////////////////////////
-    if (util.movil) {
-        dom.divFlagZone.style.display = "block";
-    }
+    if (util.movil) dom.divFlagZone.style.display = "block";
+    if(actualLevel.darkMode) fndarkMode.call(dom.btnDarkMode,true);
     start(actualLevel);
 } catch (e) {
     console.log(e);
