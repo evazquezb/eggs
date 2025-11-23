@@ -89,7 +89,7 @@ try {
             )
 
         );
-        actualLevel.playing = timer.stop();
+        //actualLevel.playing = timer.stop();
         timer.updateUI(0);
         dom.flags.innerHTML = actualLevel.eggs - boton.flags;
         return true;
@@ -141,6 +141,7 @@ try {
             timingAnimation += 20;
             return setTimeout(clearCell.bind(button), timingAnimation);
         });
+        
     }
 
     //--para explotar una mina
@@ -152,11 +153,11 @@ try {
             if (focus) this.classList.add("focus");
             this.style.animation = "none";
             actualLevel.eggsChecked += 1;
-            if (actualLevel.eggsToExplote == actualLevel.eggsChecked) {
+            if (actualLevel.eggsExploted == actualLevel.eggsChecked) {
                 actualLevel.animating = false;
-                actualLevel.lose = true;
                 actualLevel.playing = timer.stop();
                 document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
+               
             }
         }, 50);
     }
