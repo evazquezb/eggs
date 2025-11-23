@@ -156,8 +156,8 @@ try {
             if (actualLevel.eggsExploted == actualLevel.eggsChecked) {
                 actualLevel.animating = false;
                 actualLevel.playing = timer.stop();
+                actualLevel.lose=true;
                 document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
-               
             }
         }, 50);
     }
@@ -165,6 +165,7 @@ try {
     //--para checar jugada y actuar
     function act(e) {
         try {
+           
             if(actualLevel.lose || actualLevel.win) return false;
             if (!actualLevel.playing) {
                 actualLevel.playing = timer.start();
