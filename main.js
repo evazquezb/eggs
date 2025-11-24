@@ -89,7 +89,6 @@ try {
             )
 
         );
-        //actualLevel.playing = timer.stop();
         timer.updateUI(0);
         dom.flags.innerHTML = actualLevel.eggs - boton.flags;
         return true;
@@ -98,7 +97,7 @@ try {
     //--para explotartodas los huevos cuando pierdes
     const exploteEggs = function () {
         actualLevel.animating = true;
-        if (notifications === "granted" && !util.movil) {
+        /*if (notifications === "granted" && !util.movil) {
             swRegistration.showNotification("Chiiiin!", {
                 body: `intenta de nuevo el nivel ${actualLevel.level}`,
                 image: "./imgs/lose.jpg",
@@ -112,7 +111,7 @@ try {
                     }
                     )
                 );
-        }
+        }*/
         const coordenada = boton.position.call(this);
         clearCell.call(this, true);
         exploteEgg.call(this, true);
@@ -159,7 +158,7 @@ try {
                 actualLevel.lose=true;
                 document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
             }
-        }, 50);
+        }, 150);
     }
 
     //--para checar jugada y actuar
@@ -240,17 +239,17 @@ try {
         }
         dom.levelButtons.forEach(button => button.classList.remove("pushed"));
         this.classList.add("pushed");
+        actualLevel.playing = timer.stop();
         return start(this == dom.btnEasy ? level1 : this == dom.btnHard ? level2 : level3);
     }
     //para anunciar victoria
     function win() {
         const time = timer.time;
         actualLevel.playing = timer.stop();
-        dom.winSound.play();
         actualLevel.win = true;
         if (flag) btnFlagMode.click();
         document.querySelector("#btn" + actualLevel.level).classList.remove('pushed');
-        if (notifications === "granted" && !util.movil) {
+        /*if (notifications === "granted" && !util.movil) {
             swRegistration.showNotification("Nos salvaste!", {
                 body: `Ganaste el nivel ${actualLevel.level} 
         en ${util.secondsToTime(time)}`,
@@ -265,9 +264,16 @@ try {
                     }
                     )
                 )
-        } else {
-            alert(`Ganaste el nivel ${actualLevel.level} en ${util.secondsToTime(time)}`)
-        }
+        } else*///{
+            dom.winSound.play();
+            const checarAnimacion= setInterval(()=>{
+                if(actualLevel.cellsCleared==actualLevel.cellsToClear){
+                    alert(`Ganaste el nivel ${actualLevel.level} en ${util.secondsToTime(time)}`);
+                    clearInterval(checarAnimacion);
+                }
+            },50)
+            
+        //}
         //setTimeout(()=>gameOverNotification.close(),4000);
         return true;
     }
